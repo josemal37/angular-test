@@ -29,4 +29,8 @@ export class PostService {
     return this.httpClient.put(`${API_URL}${POSTS}/${post.id}`, post);
   }
 
+  postPost(post: Post): Observable<any> {
+    return this.httpClient.post(`${API_URL}${POSTS}`, post);
+  }
+
 }

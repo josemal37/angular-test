@@ -1,6 +1,8 @@
 <div class="container">
-    <h2>Today top's stories</h2>
-    <button mat-raised-button color="primary" class="pull-right">Add story</button>
+    <div>
+        <h2>Today top's stories</h2>
+        <button mat-raised-button color="primary" (click)="onClick()">Add story</button>
+    </div>
     <div class="row" *ngIf="posts">
         <div class="col-md-6" *ngFor="let post of posts">
             <jmal-post-list-item [post]="post" (click)="onSelect(post)"></jmal-post-list-item>

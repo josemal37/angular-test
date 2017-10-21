@@ -32,4 +32,8 @@ export class PostListComponent implements OnInit {
     this.router.navigate(['edit', event.id]);
   }
 
+  onClick() {
+    this.router.navigate(['new']);
+  }
+
 }

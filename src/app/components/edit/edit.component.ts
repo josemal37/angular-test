@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Post } from '../../model/post';
 import { PostService } from '../../services/post.service';
@@ -15,7 +16,8 @@ export class EditComponent implements OnInit {
 
   post: Post;
   users: User[];
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private userService: UserService) { }
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService,
+    private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -31,6 +33,7 @@ export class EditComponent implements OnInit {
   onSubmit(): void {
     this.postService.putPost(this.post).subscribe((data) => {
       console.log('data', data);
+      this.router.navigate(['stories']);
     });
   }
 
