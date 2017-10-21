@@ -21,4 +21,12 @@ export class PostService {
     return this.httpClient.get(`${API_URL}${PHOTOS}`);
   }
 
+  getPost(id: number): Observable<Post> {
+    return this.httpClient.get(`${API_URL}${POSTS}/${id}`);
+  }
+
+  putPost(post: Post): Observable<any> {
+    return this.httpClient.put(`${API_URL}${POSTS}/${post.id}`, post);
+  }
+
 }

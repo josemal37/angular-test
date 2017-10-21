@@ -1,0 +1,17 @@
+<div class="container">
+    <h3>Post form</h3>
+    <form #postForm="ngForm" *ngIf="post && users" (submit)="onSubmit()">
+        <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="post.title" class="full-width" type="text" name="title" placeholder="Title" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <textarea matInput [(ngModel)]="post.body" class="full-width" name="body" placeholder="Body" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-select placeholder="User" name="user" [(ngModel)]="post.userId">
+                <mat-option *ngFor="let user of users" [value]="user.id">{{user.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
+</div>

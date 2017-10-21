@@ -1,0 +1,12 @@
+<mat-card (click)="onClick(post)">
+    <mat-card-content>
+        <div class=container-fluid>
+            <div class="col-md-3">
+                <img *ngIf="post.pictureThumbnailURL" [src]="post.pictureThumbnailURL" class="img-responsive">
+            </div>
+            <div class="col-md-9">
+                <h4>{{post.title}}</h4>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

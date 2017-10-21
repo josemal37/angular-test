@@ -5,6 +5,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatInputModule,
+  MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -14,12 +15,14 @@ import {
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   declarations: []

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Post } from '../../model/post';
 import { PostService } from '../../services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jmal-post-list',
@@ -11,7 +12,7 @@ import { PostService } from '../../services/post.service';
 export class PostListComponent implements OnInit {
 
   posts: Post[];
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
     this.postService.getPosts().subscribe((data) => {
@@ -24,6 +25,11 @@ export class PostListComponent implements OnInit {
         }
       });
     });
+  }
+
+  onSelect(event: Post): void {
+    console.log('Post', event);
+    this.router.navigate(['edit', event.id]);
   }
 
 }

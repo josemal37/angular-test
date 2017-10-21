@@ -9,6 +9,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { LoginModule } from './modules/login/login.module';
 import { PostsModule } from './modules/posts/posts.module';
 import { PostService } from './services/post.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { PostService } from './services/post.service';
     LoginModule,
     PostsModule
   ],
-  providers: [PostService],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
