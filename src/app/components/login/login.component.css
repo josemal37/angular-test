@@ -1,0 +1,11 @@
+.login-form {
+    width: 100%;
+    margin: auto;
+}
+@media (min-width: 768px) {
+    .login-form {
+        width: 480px !important;
+        margin: auto;
+        margin-top: 200px;
+    }
+}
