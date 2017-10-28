@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface Post {
     id?: number;
     userId?: number;
@@ -6,4 +8,5 @@ export interface Post {
     pictureURL?: string;
     pictureThumbnailURL?: string;
     altPicture?: string;
+    user?: User;
 }

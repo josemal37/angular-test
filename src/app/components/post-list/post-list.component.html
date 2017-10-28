@@ -1,11 +1,11 @@
 <div class="container">
     <div>
         <h2>Today top's stories</h2>
-        <button mat-raised-button color="primary" (click)="onClick()">Add story</button>
+        <button mat-raised-button color="primary" (click)="newPost()">Add story</button>
     </div>
     <div class="row" *ngIf="posts">
         <div class="col-md-6" *ngFor="let post of posts">
-            <jmal-post-list-item [post]="post" (click)="onSelect(post)"></jmal-post-list-item>
+            <jmal-post-list-item [post]="post" (editPost)="editPost($event)" (deletePost)="deletePost($event)" (viewPost)="viewPost($event)"></jmal-post-list-item>
         </div>
     </div>
 </div>

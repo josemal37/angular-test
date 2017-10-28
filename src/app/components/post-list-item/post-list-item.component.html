@@ -1,4 +1,4 @@
-<mat-card (click)="onClick(post)">
+<mat-card class="post-card">
     <mat-card-content>
         <div class=container-fluid>
             <div class="col-md-3">
@@ -8,5 +8,19 @@
                 <h4>{{post.title}}</h4>
             </div>
         </div>
+        <p *ngIf="post.user" class="text-right">{{post.user.name}}</p>
     </mat-card-content>
+    <mat-card-actions>
+        <div class="text-right">
+            <button mat-icon-button color="primary" (click)="onClickView()">
+                <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="onClickEdit()">
+                <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onClickDelete()">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
 </mat-card>

@@ -15,7 +15,7 @@ export class PostListComponent implements OnInit {
   constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
-    this.postService.getPosts().subscribe((data) => {
+    this.postService.getPosts(true).subscribe((data) => {
       this.posts = data;
       this.postService.getPhotos().subscribe((photosData) => {
         for (let i = 0; i < this.posts.length; i++) {
@@ -27,13 +27,20 @@ export class PostListComponent implements OnInit {
     });
   }
 
-  onSelect(event: Post): void {
-    console.log('Post', event);
+  editPost(event: Post): void {
     this.router.navigate(['edit', event.id]);
   }
 
-  onClick() {
+  deletePost(event:Post): void {
+    // this.router.navigate(['delete', event.id]);
+  }
+
+  newPost() {
     this.router.navigate(['new']);
+  }
+
+  viewPost(event: Post): void {
+    // this.router.navigate(['post', event.id]);
   }
 
 }

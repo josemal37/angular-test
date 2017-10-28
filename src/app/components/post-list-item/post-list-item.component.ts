@@ -11,15 +11,32 @@ export class PostListItemComponent implements OnInit {
 
   @Input()
   post: Post;
+
   @Output()
-  eventEmmiter: EventEmitter<any> = new EventEmitter<any>();
+  deletePost: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  editPost: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  viewPost: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
   }
 
   onClick(post: Post): void {
-    this.eventEmmiter.emit(post);
+    this.editPost.emit(post);
+  }
+
+  onClickDelete(): void {
+    this.deletePost.emit(this.post);
+  }
+
+  onClickEdit(): void {
+    this.editPost.emit(this.post);
+  }
+
+  onClickView(): void {
+    this.viewPost.emit(this.post);
   }
 
 }
