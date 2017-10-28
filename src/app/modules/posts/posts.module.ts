@@ -9,6 +9,7 @@ import { PostListItemComponent } from '../../components/post-list-item/post-list
 import { EditComponent } from '../../components/edit/edit.component';
 import { NewComponent } from '../../components/new/new.component';
 import { PostViewComponent } from '../../components/post-view/post-view.component';
+import { PostFormComponent } from '../../components/post-form/post-form.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { PostViewComponent } from '../../components/post-view/post-view.componen
     HttpClientModule,
     MaterialModule
   ],
-  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent, PostViewComponent]
+  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent, PostViewComponent, PostFormComponent]
 })
 export class PostsModule { }

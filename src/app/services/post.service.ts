@@ -10,6 +10,11 @@ const POSTS = '/posts';
 const PHOTOS = '/photos';
 const EXPAND_USERS = '_expand=user';
 const SORT_BY_ID = 'sort=id';
+const DEFAULT_PICTURE = {
+  'pictureURL': 'http://placehold.it/600/92c952',
+  'pictureThumbnailURL': 'http://placehold.it/150/92c952',
+  'altPicture': 'Default picture'
+};
 
 @Injectable()
 export class PostService {
@@ -18,6 +23,10 @@ export class PostService {
 
   deletePost(id: number): Observable<any> {
     return this.httpClient.delete(`${API_URL}${POSTS}/${id}`);
+  }
+
+  getDefaultPhoto() {
+    return DEFAULT_PICTURE;
   }
 
   getPhoto(id: number): Observable<any> {

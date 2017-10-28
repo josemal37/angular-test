@@ -26,6 +26,11 @@ export class EditComponent implements OnInit {
         this.userService.getUsers().subscribe((userParams) => {
           this.users = userParams;
         });
+        this.postService.getPhoto(this.post.id).subscribe((photoParams) => {
+          this.post['pictureURL'] = photoParams['url'];
+          this.post['pictureThumbnailURL'] = photoParams['thumbnailUrl'];
+          this.post['altPicture'] = photoParams['title'];
+        });
       });
     });
   }
