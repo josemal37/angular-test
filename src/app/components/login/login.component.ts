@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from '../../model/user';
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: 'jmal-login',
@@ -11,14 +12,19 @@ import { User } from '../../model/user';
 export class LoginComponent implements OnInit {
 
   user: User = {};
+  invalidUser: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
 
   onSubmit(): void {
-    this.router.navigate(['stories']);
+    if (this.userService.validateUser(this.user)) {
+      this.router.navigate(['stories']);
+    } else {
+      this.invalidUser = true;
+    }
   }
 
 }
