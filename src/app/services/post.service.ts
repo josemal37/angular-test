@@ -15,6 +15,10 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) { }
 
+  deletePost(id: number): Observable<any> {
+    return this.httpClient.delete(`${API_URL}${POSTS}/${id}`);
+  }
+
   getPhoto(id: number): Observable<any> {
     return this.httpClient.get(`${API_URL}${PHOTOS}/${id}`);
   }
@@ -42,4 +46,5 @@ export class PostService {
   putPost(post: Post): Observable<any> {
     return this.httpClient.put(`${API_URL}${POSTS}/${post.id}`, post);
   }
+
 }

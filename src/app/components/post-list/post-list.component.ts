@@ -15,6 +15,30 @@ export class PostListComponent implements OnInit {
   constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
+    this.getPosts();
+  }
+
+  editPost(event: Post): void {
+    this.router.navigate(['edit', event.id]);
+  }
+
+  deletePost(event: Post): void {
+    this.postService.deletePost(event.id).subscribe(
+      (data) => {
+        this.getPosts();
+      }
+    );
+  }
+
+  newPost() {
+    this.router.navigate(['new']);
+  }
+
+  viewPost(event: Post): void {
+    this.router.navigate(['post', event.id]);
+  }
+
+  private getPosts(): void {
     this.postService.getPosts(true).subscribe((data) => {
       this.posts = data;
       this.postService.getPhotos().subscribe((photosData) => {
@@ -25,22 +49,6 @@ export class PostListComponent implements OnInit {
         }
       });
     });
-  }
-
-  editPost(event: Post): void {
-    this.router.navigate(['edit', event.id]);
-  }
-
-  deletePost(event:Post): void {
-    // this.router.navigate(['delete', event.id]);
-  }
-
-  newPost() {
-    this.router.navigate(['new']);
-  }
-
-  viewPost(event: Post): void {
-    this.router.navigate(['post', event.id]);
   }
 
 }
