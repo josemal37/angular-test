@@ -42,10 +42,16 @@ export class PostListComponent implements OnInit {
     this.postService.getPosts(true).subscribe((data) => {
       this.posts = data;
       this.postService.getPhotos().subscribe((photosData) => {
+        let j = 0;
         for (let i = 0; i < this.posts.length; i++) {
-          this.posts[i]['pictureURL'] = photosData[i]['url'];
-          this.posts[i]['pictureThumbnailURL'] = photosData[i]['thumbnailUrl'];
-          this.posts[i]['altPicture'] = photosData[i]['title'];
+          for(let j = 0; j < photosData.length; j++) {
+            if (this.posts[i].id == photosData[j]['id']) {
+              this.posts[i]['pictureURL'] = photosData[j]['url'];
+              this.posts[i]['pictureThumbnailURL'] = photosData[j]['thumbnailUrl'];
+              this.posts[i]['altPicture'] = photosData[j]['title'];
+              break;
+            }
+          }
         }
       });
     });

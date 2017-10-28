@@ -32,7 +32,6 @@ export class EditComponent implements OnInit {
 
   onSubmit(): void {
     this.postService.putPost(this.post).subscribe((data) => {
-      console.log('data', data);
       this.router.navigate(['stories']);
     });
   }

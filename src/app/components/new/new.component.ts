@@ -25,7 +25,6 @@ export class NewComponent implements OnInit {
 
   onSubmit() {
     this.postService.postPost(this.post).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['stories']);
     });
   }

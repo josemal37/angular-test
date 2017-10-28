@@ -9,6 +9,7 @@ const API_URL = 'http://localhost:3000';
 const POSTS = '/posts';
 const PHOTOS = '/photos';
 const EXPAND_USERS = '_expand=user';
+const SORT_BY_ID = 'sort=id';
 
 @Injectable()
 export class PostService {
@@ -24,7 +25,7 @@ export class PostService {
   }
 
   getPhotos(): Observable<any> {
-    return this.httpClient.get(`${API_URL}${PHOTOS}`);
+    return this.httpClient.get(`${API_URL}${PHOTOS}?${SORT_BY_ID}`);
   }
 
   getPost(id: number): Observable<Post> {

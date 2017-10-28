@@ -2,6 +2,7 @@
     <mat-card-content>
         <div class=container-fluid>
             <div class="col-md-3">
+                <mat-spinner *ngIf="!post.pictureThumbnailURL"></mat-spinner>
                 <img *ngIf="post.pictureThumbnailURL" [src]="post.pictureThumbnailURL" class="img-responsive">
             </div>
             <div class="col-md-9 custom-card-title">
