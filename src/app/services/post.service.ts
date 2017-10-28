@@ -15,6 +15,18 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getPhoto(id: number): Observable<any> {
+    return this.httpClient.get(`${API_URL}${PHOTOS}/${id}`);
+  }
+
+  getPhotos(): Observable<any> {
+    return this.httpClient.get(`${API_URL}${PHOTOS}`);
+  }
+
+  getPost(id: number): Observable<Post> {
+    return this.httpClient.get(`${API_URL}${POSTS}/${id}?${EXPAND_USERS}`);
+  }
+
   getPosts(withUserData?: boolean): Observable<any> {
     let queryString: string = `${API_URL}${POSTS}`;
     if (withUserData) {
@@ -23,20 +35,11 @@ export class PostService {
     return this.httpClient.get(queryString);
   }
 
-  getPhotos(): Observable<any> {
-    return this.httpClient.get(`${API_URL}${PHOTOS}`);
-  }
-
-  getPost(id: number): Observable<Post> {
-    return this.httpClient.get(`${API_URL}${POSTS}/${id}`);
+  postPost(post: Post): Observable<any> {
+    return this.httpClient.post(`${API_URL}${POSTS}`, post);
   }
 
   putPost(post: Post): Observable<any> {
     return this.httpClient.put(`${API_URL}${POSTS}/${post.id}`, post);
   }
-
-  postPost(post: Post): Observable<any> {
-    return this.httpClient.post(`${API_URL}${POSTS}`, post);
-  }
-
 }

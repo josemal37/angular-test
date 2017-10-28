@@ -5,6 +5,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { NewComponent } from './components/new/new.component';
+import { PostViewComponent } from "./components/post-view/post-view.component";
 
 const routes: Routes = [
   {
@@ -13,21 +14,25 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'edit/:id',
+    component: EditComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'new',
+    component: NewComponent
+  },
+  {
+    path: 'post/:id',
+    component: PostViewComponent
   },
   {
     path: 'stories',
     component: PostListComponent
   },
-  {
-    path: 'edit/:id',
-    component: EditComponent
-  },
-  {
-    path: 'new',
-    component: NewComponent
-  }
 ];
 
 @NgModule({

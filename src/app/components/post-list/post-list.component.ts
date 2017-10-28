@@ -40,7 +40,7 @@ export class PostListComponent implements OnInit {
   }
 
   viewPost(event: Post): void {
-    // this.router.navigate(['post', event.id]);
+    this.router.navigate(['post', event.id]);
   }
 
 }

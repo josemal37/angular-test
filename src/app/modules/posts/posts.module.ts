@@ -8,6 +8,7 @@ import { MaterialModule } from '../material/material.module';
 import { PostListItemComponent } from '../../components/post-list-item/post-list-item.component';
 import { EditComponent } from '../../components/edit/edit.component';
 import { NewComponent } from '../../components/new/new.component';
+import { PostViewComponent } from '../../components/post-view/post-view.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { NewComponent } from '../../components/new/new.component';
     HttpClientModule,
     MaterialModule
   ],
-  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent]
+  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent, PostViewComponent]
 })
 export class PostsModule { }
