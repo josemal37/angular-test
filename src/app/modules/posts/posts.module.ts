@@ -10,6 +10,7 @@ import { EditComponent } from '../../components/edit/edit.component';
 import { NewComponent } from '../../components/new/new.component';
 import { PostViewComponent } from '../../components/post-view/post-view.component';
 import { PostFormComponent } from '../../components/post-form/post-form.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { PostFormComponent } from '../../components/post-form/post-form.componen
     HttpClientModule,
     MaterialModule
   ],
-  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent, PostViewComponent, PostFormComponent]
+  declarations: [PostListComponent, PostListItemComponent, EditComponent, NewComponent, PostViewComponent, PostFormComponent, NavbarComponent]
 })
 export class PostsModule { }

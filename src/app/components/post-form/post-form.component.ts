@@ -65,7 +65,6 @@ export class PostFormComponent implements OnInit {
       this.users = userParams;
     });
     let defaultPicture = this.postService.getDefaultPhoto();
-    console.log(defaultPicture);
     this.post['pictureURL'] = defaultPicture['pictureURL'];
     this.post['pictureThumbnailURL'] = defaultPicture['pictureThumbnailURL'];
     this.post['altPicture'] = defaultPicture['altPicture'];
